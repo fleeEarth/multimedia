@@ -4,6 +4,9 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 class DirEntity {
+    //上级目录
+    var pFilePath: String = ""
+
     //文件名称
     var fileName: String = ""
 
@@ -16,7 +19,8 @@ class DirEntity {
     //是否是目录
     var isDirectory: Boolean = false
 
-    constructor(fileName: String, filePath: String, fileType: String?, isDirectory: Boolean) {
+    constructor(pFilePath: String, fileName: String, filePath: String, fileType: String?, isDirectory: Boolean) {
+        this.pFilePath = pFilePath
         this.fileName = fileName
         this.filePath = filePath
         this.fileType = fileType
@@ -24,12 +28,12 @@ class DirEntity {
     }
 
     companion object {
-        fun newInstance(fileName: String, filePath: String, isDirectory: Boolean): DirEntity {
-            var fileType:String? = null
-            if(!isDirectory){
+        fun newInstance(pFilePath: String, fileName: String, filePath: String, isDirectory: Boolean): DirEntity {
+            var fileType: String? = null
+            if (!isDirectory) {
                 fileType = fileName.substring(fileName.lastIndexOf("."))
             }
-            return DirEntity(fileName, filePath, fileType, isDirectory)
+            return DirEntity(pFilePath, fileName, filePath, fileType, isDirectory)
         }
     }
 }

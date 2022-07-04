@@ -6,4 +6,5 @@ import my.multimedia.utils.Result
 interface DirService {
 
     fun queryDirList(dirParams: JSONObject): Result
+    fun queryDirImageFile(data: JSONObject): Result
 }

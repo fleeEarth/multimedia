@@ -24,4 +24,12 @@ class DirController {
         return dirService.queryDirList(params.data)
     }
 
+    /**
+     * 获取目录图片文件
+     */
+    @RequestMapping(value = ["/queryDirImageFile"])
+    fun queryDirImageFile(@RequestBody params: Params):Result{
+        return dirService.queryDirImageFile(params.data)
+    }
+
 }
